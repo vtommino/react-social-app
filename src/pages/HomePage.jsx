@@ -1,30 +1,39 @@
-import { Link, useNavigate } from 'react-router-dom'
-import Button from '@mui/material/Button'
-import DeleteIcon from '@mui/icons-material/Delete';
+// import { Link, useNavigate } from 'react-router-dom'
+import { AppBar, Box, Toolbar, IconButton, Typography} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 function HomePage(){
-    const navigate = useNavigate();
+    <Box flexGlow ={1}>
+        <AppBar position='static'>
+        <Toolbar
+        sx={{
+            display: 'flex',
+            width: '100%',
+            justifyContent:'space-between',
+            alignItems:'center',
+        }}
+        >
+            {/*Left*/}
+            <Box display='flex' alignItems='center'gap='10px'>
+                <IconButton>
+                    <MenuIcon />
+                </IconButton>
+                <Typography
+                    variant='h6'
+                    noWrap
+                    component='div'
+                    sx={{display:{xs:'none',sm:'block'}}}
+                >
 
-    const handleClick  = () =>{
-        let isValid = true;
+                    FakeBook
+                </Typography>
 
-        if(isValid) navigate('/profile');
-        else navigate('/login');
-    };
-
-    return (
-        <div>
-            <h1>HomePage</h1>
-            <Link to = '/login'>"LoginPage</Link>
-            <Link to = '/profile'>ProfilePage</Link>
-            <Button 
-            variant="contained" 
-            color='error' 
-            size='medium'
-            onClick={handleClick}
-            endIcon={<DeleteIcon />}>Go to 404</Button>
-        </div>
-    );
+            </Box>
+            <Box>AVATAR</Box>
+        </Toolbar> 
+        </AppBar>
+    </Box>
 }
+
 
 export default HomePage;
